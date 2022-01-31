@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Tour = ({ name, info, image, price }) => {
+	const [readMore, setReadMore] = useState(true);
 	return (
 		<article className="single-tour">
 			<img src={image} alt={name} />
@@ -9,7 +10,15 @@ const Tour = ({ name, info, image, price }) => {
 					<h4>{name}</h4>
 					<h4 className="tour-price">${price}</h4>
 				</div>
-				<p>{info}</p>
+				<p>
+					{readMore ? `${info.slice(0, 200)}...` : `${info}`}
+					<button
+						className=""
+						onClick={() => setReadMore((prevState) => !prevState)}
+					>
+						{readMore ? 'Read More' : 'show less'}
+					</button>
+				</p>
 				<button className="delete-btn">not Interested</button>
 			</footer>
 		</article>
