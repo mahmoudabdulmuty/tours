@@ -26,11 +26,11 @@ function App() {
 	}, []);
 
 	return (
-		<>
+		<main>
 			{isLoading && <Loading />}
 			{isError && { isError }}
 			{data.length > 0 && <Tours tours={data} />}
-		</>
+		</main>
 	);
 }
 
